@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Modal from "./Modal";
 
 const AddProduct = ({ addItem, orderId }) => {
   const initialValue = { sku: "", name: "", price: "", quantity: "" };
@@ -19,7 +18,7 @@ const AddProduct = ({ addItem, orderId }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     let newErrorsObj = Object.entries(product)
-      .filter(([key, value]) => {
+      .filter(([, value]) => {
         return value.length === 0;
       })
       .reduce((obj, [key, value]) => {
